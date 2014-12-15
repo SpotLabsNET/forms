@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenclerkForms;
+namespace OpenclerkForms\Validators;
 
 class RequiredValidator implements Validator {
   function __construct($message) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Openclerk\Validators;
+namespace OpenclerkForms\Validators;
 
 class EqualsValidator implements Validator {
   function __construct($key, $message) {

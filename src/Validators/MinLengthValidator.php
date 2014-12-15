@@ -1,6 +1,6 @@
 <?php
 
-namespace Openclerk\Validators;
+namespace OpenclerkForms\Validators;
 
 class MinLengthValidator implements Validator {
   function __construct($number, $message) {
