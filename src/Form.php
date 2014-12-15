@@ -5,10 +5,46 @@ namespace OpenclerkForms;
 class FormConstructionException extends \Exception { }
 class FormRenderingException extends \Exception { }
 
-class Form {
+abstract class Form {
   var $fields = array();
   var $failureMessage = "There were problems with your submission.";
   var $additionalClasses = "";
+
+  /**
+   * @return a list of errors (key => value or key => array(values))
+   *      or nothing if the form validates fine
+   */
+  function validate($form) {
+    $result = array();
+
+    // check db
+    $q = db()->prepare("SELECT * FROM users WHERE email=? LIMIT 1");
+    $q->execute(array($form['email']));
+    if ($q->fetch()) {
+      $result['email'] = "That email address is in use.";
+    }
+
+    return $result;
+  }
+
+  /**
+   * The form has been submitted and is ready to be processed.
+   * The user can be redirected from here if necessary, or
+   * an exception can be thrown.
+   * @return A success message if the form was successful
+   * @throws Exception if the form could not be processed
+   */
+  function process($form) {
+
+    $user = Users\UserPassword::trySignup(db(), $form['email'], $form['password']);
+    if ($user) {
+      return "Signed up successfully";
+      // could also redirect here
+    } else {
+      throw new Exception("Could not sign up");
+    }
+
+  }
 
   function addField($key, $type, $title) {
     if (isset($this->fields[$key])) {

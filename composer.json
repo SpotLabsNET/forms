@@ -1,6 +1,7 @@
 {
   "name": "openclerk/forms",
   "require": {
+    "soundasleep/php-helpers": "dev-master"
   },
   "autoload": {
     "psr-4": {
