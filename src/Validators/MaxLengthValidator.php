@@ -1,6 +1,8 @@
 <?php
 
 namespace OpenclerkForms\Validators;
+use OpenclerkForms\Validator;
+use OpenclerkForms\Form;
 
 class MaxLengthValidator implements Validator {
   function __construct($number, $message) {

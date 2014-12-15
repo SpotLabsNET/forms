@@ -1,6 +1,8 @@
 <?php
 
 namespace OpenclerkForms\Validators;
+use OpenclerkForms\Validator;
+use OpenclerkForms\Form;
 
 class EmailValidator implements Validator {
   function __construct($message) {
