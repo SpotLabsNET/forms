@@ -1,0 +1,9 @@
+{
+  "scss": [
+    "css/*.scss"
+  ],
+  "coffee": [
+    "js/*.coffee",
+    "js/validators/*.coffee"
+  ]
+}

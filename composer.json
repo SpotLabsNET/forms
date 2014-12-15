@@ -1,0 +1,10 @@
+{
+  "name": "openclerk/forms",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "OpenclerkForms\\": "src"
+    }
+  }
+}
