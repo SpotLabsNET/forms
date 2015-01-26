@@ -17,13 +17,6 @@ abstract class Form {
   function validate($form) {
     $result = array();
 
-    // check db
-    $q = db()->prepare("SELECT * FROM users WHERE email=? LIMIT 1");
-    $q->execute(array($form['email']));
-    if ($q->fetch()) {
-      $result['email'] = "That email address is in use.";
-    }
-
     return $result;
   }
 
